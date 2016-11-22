@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Guitars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Style</th>
+      <th>Strings</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guitars.each do |guitar| %>
+      <tr>
+        <td><%= guitar.brand %></td>
+        <td><%= guitar.model %></td>
+        <td><%= guitar.style %></td>
+        <td><%= guitar.strings %></td>
+        <td><%= link_to 'Show', guitar %></td>
+        <td><%= link_to 'Edit', edit_guitar_path(guitar) %></td>
+        <td><%= link_to 'Destroy', guitar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Guitar', new_guitar_path %>
